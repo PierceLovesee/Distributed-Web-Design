@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS 2 title</title>
+  </head>
+  <style>
+    body>p {
+      color: yellow;
+    }
+    body>p+div>p {
+      color: cyan;
+    }
+    body>p+div>p+div {
+      color: brown;
+    }
+    body>p+div>p+div>p {
+      color: black;
+    }
+    body>p+div>p+div+p {
+      color: red;
+    }
+    body>p+div>p+div+p+p {
+      color: green;
+    }
+    body>p+div>p+div+p+p+div>div>p {
+      color: brown;
+    }
+    body>p+div>p+div+p+p+div>div+div>p {
+      color: pink;
+    }
+    body>p+div+p {
+      color: blue;
+    }
+  </style>
+  <body>
+    <p>Here should be yellow</p>
+    <div>
+      <p>Here should be cyan</p>
+      <div>
+          Content of this division should be brown
+          <p>Some text</p>
+      </div>
+      <p>Here should be red</p>
+      <p>Here should be green</p>
+      <div>
+        <div>
+          <p>Here should be brown</p>
+        </div>
+        <div>
+          <p>Here should be pink</p>
+        </div>
+      </div>
+    </div>
+    <p>Here should be blue</p>
+  </body>
+</html>
