@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <style media="screen">
+
+    body>p, body>p+div, body>p+div+p {
+      color:red;
+    }
+
+    body>p+div>div>p, body>p+div+p+div>div, body>p+div+p+div>div>p {
+      color:blue;
+    }
+
+    body>p+div>div>p+div>p, body>p+div+p+div>div+p {
+      color:green;
+    }
+
+    body>p+div>div>p+div>p+p {
+      color:brown;
+    }
+
+  </style>
+  <body>
+    <p>This should be red</p>
+    <div>This should be red
+      <div>
+        <p>This should be blue</p>
+        <div>
+          <p>This should be green</p>
+          <p>This should be brown</p>
+        </div>
+      </div>
+    </div>
+    <p>This should be red</p>
+    <div>
+      <div>This should be blue
+        <p>This should be blue</p>
+      </div>
+      <p>This should be green</p>
+    </div>
+  </body>
+</html>

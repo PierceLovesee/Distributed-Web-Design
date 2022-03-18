@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Pierce Lovesee - HW JS Function</title>
+  </head>
+  <style media="screen">
+    .headingSection {
+      border: 2px solid black;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .inputArray {
+      border: 2px solid red;
+      border-radius: 7px;
+      padding: 10px;
+    }
+    .output {
+      border: 2px solid blue;
+      border-radius: 7px;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <div class="headingSection">
+      <h1>Pierce Lovesee - HW JS Function</h1>
+      <h2> CSCI 6720 - Spring 2022 - March 2nd, 2022</h2>
+    </div>
+    <div class="inputArray">
+      <p>Here are your three input values:</p>
+      <p id="yourArray"></p>
+    </div>
+    <div class="output">
+      <p>Here is the <strong>Max</strong> of the three values:</p>
+      <p id="max"></p>
+    </div>
+    <div class="output">
+      <p>Here is the <strong>Average</strong> of the three values:</p>
+      <p id="avg"></p>
+    </div>
+
+    <script type="text/javascript">
+
+      // simple average function; since input is restricted to 3 values, simply
+      // sum all three values and divide by three, return the result.
+      function avg(x, y, z) {
+        return ((x + y + z) / 3);
+      }
+
+      // function to determine the max of the three input values.
+      // conditional statements used as opposed to a loop to handle desired
+      // 3 parameter input per problem statement.
+      function max(x, y, z) {
+        var maxValue = x;
+        if (maxValue < y) {
+          maxValue = y;
+        }
+        if (maxValue < z) {
+          maxValue = z;
+        }
+        return(maxValue);
+      }
+
+
+      function display(x, y, z) {
+        // invocation and display of the max() function.
+        document.getElementById("max").innerHTML = max(x, y, z);
+
+        // invocation and display of the avg() function.
+        document.getElementById("avg").innerHTML = avg(x, y, z);
+      }
+
+      // per problem statement, the input is not contained within a function,
+      // but only done within the primary script.  This causes the prompt()
+      // function to run automatically once the page is loaded to collect user
+      // input.
+
+      var values = [];      // empty array to hold input values
+      var value = null;
+      for (let i=0; i < 3; i++){    // loop restricts input to 3 values
+        // prompt() function being used for input per assignment specification
+        value = prompt("Enter a Number: ");
+
+        // loop to ensure only numeric input is supplied.
+        // parseFloat pulls numbers out of input, in base 10, and converts to
+        // a string for comparison to the string input.  If the two are not
+        // the same, it is refused and the user is redirected to give numbers.
+        while (value !== parseFloat(value, 10).toString()) {
+          alert("Note: This program only accepts numbers as input.");
+          value = prompt("Enter a number: ");
+        }
+        // once number is give, the string is converted to a float and pushed
+        // to the values array
+        values.push(parseFloat(value));
+      }
+      // displays the user's input once all 3 values are given.
+      document.getElementById("yourArray").innerHTML = values;
+
+      // assigns the three values in the array to individual variables
+      // this is done to match the disply(), max(), and avg() functions
+      // to the problem statement given for needing 3 input paramaters.
+      var x = values[0];
+      var y = values[1];
+      var z = values[2];
+
+      display(x, y, z); // invoking display() function.
+    </script>
+  </body>
+</html>
