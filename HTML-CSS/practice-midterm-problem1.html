@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      body>p {
+        color:red;
+      }
+      body>p+div {
+        color: red;
+      }
+      body>p+div>div>p {
+        color: blue;
+      }
+      body>p+div>div>p+div>p {
+        color: green;
+      }
+      body>p+div>div>p+div>p+p {
+        color: brown;
+      }
+      body>p+div+p {
+        color: red;
+      }
+      body>p+div+p+div>div {
+        color: blue;
+      }
+      body>p+div+p+div>div>p {
+        color: blue;
+      }
+      body>p+div+p+div>div+p {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <p> This should be red </p>
+    <div> This should be red
+      <div>
+        <p> this should be blue.</p>
+        <div>
+          <p>This should be green.</p>
+          <p>This should be brown.</p>
+        </div>
+      </div>
+    </div>
+    <p>This should be red</p>
+    <div>
+      <div> This should be blue.
+        <p>This should be blue</p>
+      </div>
+      <p>this should be green</p>
+    </div>
+  </body>
+</html>
