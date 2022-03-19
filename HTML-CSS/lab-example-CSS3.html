@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS 3</title>
+    <style>
+      table, td {
+        border: solid 2px black;
+        border-collapse: collapse;
+      }
+      tr+tr>td:hover {
+        background-color: red;
+      }
+      tr+tr>td+td:hover {
+        background-color: transparent;
+      }
+      tr+tr+tr>td+td:hover {
+        background-color: blue;
+      }
+      tr+tr+tr>td:hover {
+        background-color: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td>Place holder</td>
+          <td>Place Holder</td>
+        </tr>
+        <tr>
+          <td>Hover to see red</td>
+          <td>Place holder</td>
+        </tr>
+        <tr>
+          <td>Place holder</td>
+          <td>Hover to see Blue</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
