@@ -6,20 +6,33 @@
   </head>
   <body>
     <h2>LCM</h2>
-      Number 1: <input type="text" id="number1" value=""> <br>
-      Number 2: <input type="text" id="number2" value=""> <br>
+      Number 1: <input type="text" id="num1" value=""><br>
+      Number 2: <input type="text" id="num2" value=""><br>
       Result: <input type="text" id="result" value=""><br>
       <br>
-      <button type="button" name="button" onclick="myLCM()">Calculate</button>
-      <button type="button" name="button" onclick="myCancel()">Cancel</button>
+      <button onclick="myLCM()">Calculate</button>
+      <button onclick="myCancel()">Cancel</button>
 
     <script>
       function myLCM() {
-        
+        var n1 = parseInt(document.getElementById("num1").value);
+        var n2 = parseInt(document.getElementById("num2").value);
+        document.getElementById("result").value = (LCM(n1, n2)).toString();
       }
       function myCancel() {
-
+        document.getElementById("num1").value = "";
+        document.getElementById("num2").value = "";
+        document.getElementById("result").value = "";
       }
+      function GCD(n1, n2) {
+        if (n2 == 0)
+          return n1;
+        return GCD(n1, (n1 % n2));
+      }
+      function LCM(n1, n2) {
+        return (n1 / GCD(n1, n2)) * n2;
+      }
+
     </script>
 
   </body>
