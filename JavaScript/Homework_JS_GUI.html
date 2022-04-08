@@ -19,6 +19,9 @@
     .padding {
       padding: 7px;
     }
+    .assumptions {
+      text-align: left;
+    }
 
 
   </style>
@@ -29,6 +32,13 @@
     </div>
 
     <div class="calculator">
+      <div class="assumptions">
+        <p><strong>Note:</strong> For this assignment, the number zero (0) has been excluded from
+        the set of natural numbers.  This was done for completness and to satisfy
+        an edge case.  Since no integer, excluding zero if zero is to be considered an integer,
+        contains zero as a multiple, this makes the LCM of any number and zero undefined.
+        </p>
+      </div>
       <div class="padding">
         Number 1: <input type="text" id="num1" value=""><br>
       </div>
@@ -92,9 +102,12 @@
         // n * m = LCM(n,m) * GCD(n,m)
         // therefore, LCM = (n*m) / GCD(n,m)
         gcd = GCD(n1, n2);
+        if ((n1 == 0) || (n2 == 0)) {
+          return("Zero is not allowed");
+        }
         // catch for negative input; prevents infinite loop
         if (gcd == -1) {
-          return("Only Positive Integers");
+          return("Only Integers > Zero");
         }
         return ((n1 * n2) / gcd);
       }
