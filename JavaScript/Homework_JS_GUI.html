@@ -2,16 +2,46 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Pierce Lovesee - Homework JS GUI</title>
   </head>
+  <style media="screen">
+    .headingSection {
+      border: 2px solid black;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .calculator {
+      border: 2px solid black;
+      border-radius: 7px;
+      padding: 15px;
+      text-align: center;
+    }
+    .padding {
+      padding: 7px;
+    }
+
+
+  </style>
   <body>
-    <h2>LCM</h2>
-      Number 1: <input type="text" id="num1" value=""><br>
-      Number 2: <input type="text" id="num2" value=""><br>
-      Result: <input type="text" id="result" value=""><br>
+    <div class="headingSection">
+      <h1>Pierce Lovesee - Homework JS GUI</h1>
+      <h2> CSCI 6720 - Spring 2022 - April 7th, 2022</h2>
+    </div>
+
+    <div class="calculator">
+      <div class="padding">
+        Number 1: <input type="text" id="num1" value=""><br>
+      </div>
+      <div class="padding">
+        Number 2: <input type="text" id="num2" value=""><br>
+      </div>
+      <div class="padding">
+        LCM: <input type="text" id="result" value=""><br>
+      </div>
       <br>
       <button onclick="myLCM()">Calculate</button>
       <button onclick="myCancel()">Cancel</button>
+    </div>
 
     <script>
       function myLCM() {
@@ -26,15 +56,28 @@
       }
 
       function GCD(n1, n2) {
+        // GCD = Greatest Common Denominator
+        // algorithm for determining the GCD of two natural numbers
+        // based on the Euclidean algorithm
+
+        // catch for negative input; prevents infinite loop
+        if ((n1 < 0) || (n2 < 0)) {
+          return -1;
+        }
+        // base cases for 0 input, GCD of any integer n and zero is n.
         if (n1 == 0) {
           return n2;
         }
         if (n2 == 0) {
           return n1;
         }
+
+        // base case for GCD
         if (n1 == n2) {
           return n1;
         }
+
+        // recursive function to perform the Euclidean Algorithm
         if (n1 > n2) {
           return GCD((n1-n2), n2);
         }
@@ -42,7 +85,18 @@
       }
 
       function LCM(n1, n2) {
-        return ((n1 * n2) / GCD(n1, n2));
+        //LCM = least common multiple
+        //GCD = greatest common denominator
+        // LCM and GCD have the following relationship for
+        // two natural numbers, n and m:
+        // n * m = LCM(n,m) * GCD(n,m)
+        // therefore, LCM = (n*m) / GCD(n,m)
+        gcd = GCD(n1, n2);
+        // catch for negative input; prevents infinite loop
+        if (gcd == -1) {
+          return("Only Positive Integers");
+        }
+        return ((n1 * n2) / gcd);
       }
 
     </script>
